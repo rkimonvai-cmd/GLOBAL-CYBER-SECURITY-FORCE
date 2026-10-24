@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>—͟͞͞★𝗚𝗟𝗢𝗕𝗔𝗟⏤ ꯭⃞꯭𝗖𝗬𝗕𝗘𝗥 ♻️⃝⃪𝗦𝗘𝗖𝗨𝗥𝗜𝗧𝗬⚠️⃝⃪𝗙𝗢𝗥𝗖𝗘💀</title>
+    <style>
+      :root {
+        --bg: #05070d;
+        --panel: rgba(12, 17, 20, 0.9);
+        --green: #00ff9d;
+        --green-2: #7bffcb;
+        --cyan: #00d9ff;
+        --pink: #ff4fd8;
+        --danger: #ff4d6d;
+        --yellow: #ffd166;
+        --text: #dffef7;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at top, rgba(0,255,157,0.10), transparent 30%),
+          linear-gradient(180deg, #04070b 0%, #05070d 100%);
+      }
+
+      .page {
+        min-height: 100vh;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 16px;
+      }
+
+      .page.active {
+        display: flex;
+      }
+
+      .container {
+        width: min(95%, 1000px);
+        background: var(--panel);
+        border: 2px solid var(--green);
+        box-shadow: 0 0 25px rgba(0,255,157,0.38);
+        padding: 28px 20px 22px;
+      }
+
+      .cyber-title {
+        text-align: center;
+        margin: 0 0 18px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: var(--green);
+        text-shadow: 0 0 10px rgba(0,255,157,0.8), 0 0 20px rgba(0,255,157,0.5);
+      }
+
+      .typing-wrap {
+        min-height: 94px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: clamp(22px, 5vw, 48px);
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.08em;
+        text-shadow: 0 0 14px rgba(0,255,157,0.9);
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 12px;
+        height: 1em;
+        background: var(--green);
+        box-shadow: 0 0 10px rgba(0,255,157,0.8);
+        margin-left: 6px;
+        animation: blink 0.7s infinite;
+      }
+
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        50.01%, 100% { opacity: 0; }
+      }
+
+      .rules-box {
+        max-height: 460px;
+        overflow-y: auto;
+        border: 2px solid var(--green);
+        padding: 18px 18px 8px;
+        background: rgba(0,0,0,0.18);
+        box-shadow: inset 0 0 20px rgba(0,255,157,0.08);
+      }
+
+      .rule-item {
+        margin-bottom: 16px;
+        padding: 10px 12px 10px 14px;
+        border-left: 4px solid var(--green);
+        background: rgba(0,255,157,0.03);
+      }
+
+      .rule-item strong {
+        color: var(--green-2);
+      }
+
+      .scroll-note {
+        margin-top: 16px;
+        text-align: center;
+        color: var(--yellow);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+      }
+
+      .agree-box {
+        display: none;
+        margin-top: 18px;
+        border: 2px solid var(--cyan);
+        background: rgba(0, 217, 255, 0.04);
+        padding: 14px 12px;
+      }
+
+      .agree-box.visible {
+        display: block;
+      }
+
+      .checkbox-line {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .checkbox-line input {
+        width: 22px;
+        height: 22px;
+        accent-color: var(--green);
+      }
+
+      .btn {
+        width: 100%;
+        margin-top: 18px;
+        background: transparent;
+        border: 2px solid var(--green);
+        color: var(--green);
+        padding: 14px 18px;
+        font-size: 1.02rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition: 0.2s ease;
+        letter-spacing: 0.06em;
+      }
+
+      .btn:hover:not(:disabled) {
+        background: var(--green);
+        color: #03140d;
+        box-shadow: 0 0 20px rgba(0,255,157,0.8);
+      }
+
+      .btn:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .btn-cyan {
+        border-color: var(--cyan);
+        color: var(--cyan);
+      }
+
+      .btn-cyan:hover:not(:disabled) {
+        background: var(--cyan);
+        color: #041b22;
+        box-shadow: 0 0 20px rgba(0,217,255,0.8);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 20px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      .field label {
+        font-weight: 700;
+        color: var(--green-2);
+      }
+
+      input, select, textarea {
+        width: 100%;
+        border: 1px solid var(--green);
+        background: rgba(0, 0, 0, 0.2);
+        color: var(--text);
+        padding: 12px 12px;
+        font-size: 1rem;
+        outline: none;
+        transition: 0.2s ease;
+      }
+
+      input:focus, select:focus, textarea:focus {
+        border-color: var(--cyan);
+        box-shadow: 0 0 12px rgba(0,217,255,0.35);
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .file-box {
+        border: 2px dashed var(--cyan);
+        background: rgba(0,217,255,0.04);
+        padding: 14px;
+        cursor: pointer;
+        color: var(--cyan);
+        font-weight: 700;
+      }
+
+      .file-box input {
+        display: none;
+      }
+
+      .file-name {
+        display: block;
+        margin-top: 8px;
+        color: var(--green-2);
+        font-size: 0.93rem;
+        word-break: break-all;
+      }
+
+      .helper {
+        border: 2px solid var(--yellow);
+        background: rgba(255, 209, 102, 0.08);
+        color: var(--yellow);
+        padding: 14px;
+        margin-top: 20px;
+        line-height: 1.6;
+      }
+
+      .script-box {
+        border: 2px solid var(--cyan);
+        margin-top: 18px;
+        padding: 16px;
+        background: rgba(0,217,255,0.03);
+      }
+
+      .script-box .script-copy {
+        display: inline-block;
+        margin-top: 12px;
+        background: var(--cyan);
+        color: #07171d;
+        border: none;
+        font-weight: 800;
+        padding: 10px 12px;
+        cursor: pointer;
+      }
+
+      .success-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.82);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 999;
+      }
+
+      .success-overlay.show {
+        display: flex;
+      }
+
+      .success-box {
+        width: min(92%, 620px);
+        background: rgba(6, 12, 14, 0.95);
+        border: 2px solid var(--green);
+        box-shadow: 0 0 30px rgba(0,255,157,0.33);
+        padding: 25px 18px;
+        text-align: center;
+      }
+
+      .success-box h2 {
+        margin: 0 0 14px;
+        color: var(--green);
+        font-size: clamp(26px, 4vw, 40px);
+      }
+
+      .success-box p {
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      .profile-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .profile-card {
+        border: 2px solid var(--green);
+        background: rgba(0,0,0,0.18);
+        padding: 18px;
+      }
+
+      .profile-card h3 {
+        margin: 0 0 16px;
+        color: var(--green);
+        font-size: 1.8rem;
+      }
+
+      .profile-pic {
+        width: 100%;
+        height: 260px;
+        border: 2px solid var(--cyan);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        background: rgba(0,217,255,0.04);
+        margin-bottom: 14px;
+        overflow: hidden;
+      }
+
+      .profile-pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .tag {
+        border: 1px solid var(--green);
+        padding: 6px 10px;
+        color: var(--green-2);
+        font-size: 0.8rem;
+        background: rgba(0,255,157,0.04);
+      }
+
+      .typing-banner {
+        margin-top: 12px;
+        border: 2px solid var(--cyan);
+        padding: 12px 14px;
+        background: rgba(0,217,255,0.03);
+        color: var(--cyan);
+        min-height: 52px;
+        font-weight: 700;
+      }
+
+      .join-hero {
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .image-control-box {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .image-control-box input {
+        flex: 1 1 420px;
+        max-width: 620px;
+        padding: 12px 14px;
+        border: 1px solid var(--green);
+        background: rgba(0,0,0,0.25);
+        color: var(--text);
+        font-size: 0.96rem;
+      }
+
+      .image-control-box button {
+        padding: 12px 18px;
+        background: var(--green);
+        color: #03140d;
+        border: none;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .join-hero img {
+        width: min(100%, 720px);
+        height: auto;
+        display: block;
+        margin: 0 auto 14px;
+        border: 2px solid var(--green);
+        box-shadow: 0 0 20px rgba(0,255,157,0.35);
+        background: rgba(0,0,0,0.2);
+      }
+
+      .join-banner {
+        font-size: clamp(18px, 2.6vw, 32px);
+        font-weight: 900;
+        color: var(--green);
+        letter-spacing: 0.12em;
+        text-shadow: 0 0 12px rgba(0,255,157,0.8);
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      @media (max-width: 768px) {
+        .form-grid,
+        .profile-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .container {
+          padding: 22px 14px 18px;
+        }
+
+        .typing-wrap {
+          font-size: clamp(18px, 8vw, 30px);
+          letter-spacing: 0.04em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section id="welcomePage" class="page active">
+      <div class="container">
+        <h1 class="cyber-title">WELCOME</h1>
+        <div class="typing-wrap" id="typingText"></div>
+      </div>
+    </section>
+
+    <section id="rulesPage" class="page">
+      <div class="container">
+        <h1 class="cyber-title">TEAM RULES</h1>
+
+        <div class="rules-box" id="rulesBox">
+          <div class="rule-item"><strong>১.</strong> আমাদের টিম বাংলাদেশে Cyber Security-কে নৈতিক, আইনসম্মত এবং সামাজিক দায়বদ্ধতার সাথে রক্ষা করতে কাজ করবে।</div>
+          <div class="rule-item"><strong>২.</strong> অন্যায়, প্রতারণা, হয়রানি, ডেটা চুরি, অননুমোদিত প্রবেশ, ও ডিজিটাল নিপীড়নের বিরুদ্ধে সচেতনভাবে কাজ করতে হবে।</div>
+          <div class="rule-item"><strong>৩.</strong> আমরা নৈতিকতার ভিত্তিতে কাজ করব, মানবিক মূল্যবোধ, সততা, শালীনতা, ও ন্যায়ের পক্ষে থাকব।</div>
+          <div class="rule-item"><strong>৪.</strong> সবার সম্মান, বিশেষ করে সিনিয়রদের সম্মান এবং ছোটদের স্নেহ বজায় রাখতে হবে।</div>
+          <div class="rule-item"><strong>৫.</strong> গোপনীয়তা, privacy, ও ব্যক্তিগত তথ্য সুরক্ষা সর্বোচ্চ গুরুত্ব পাবে।</div>
+          <div class="rule-item"><strong>৬.</strong> কোনো ব্যক্তির ছবি, চ্যাট, ফাইল, বা তথ্য অযথা প্রকাশ করা যাবে না।</div>
+          <div class="rule-item"><strong>৭.</strong> ধর্মীয় অনুভূতিতে কটুক্তি, ঘৃণা, বা হয়রানি করা যাবে না; আমরা সকলের সম্মান, ভদ্রতা, ও ন্যায়বোধ মেনে চলব।</div>
+          <div class="rule-item"><strong>৮.</strong> আমরা আইনের প্রতি শ্রদ্ধাশীল হব, এবং প্রযুক্তির ব্যবহারকে দায়িত্বশীলভাবে করব।</div>
+          <div class="rule-item"><strong>৯.</strong> টিমের ঐক্য, পারস্পরিক বিশ্বাস, সহযোগিতা, ও শৃঙ্খলা বজায় রাখা প্রত্যেক সদস্যের দায়িত্ব।</div>
+          <div class="rule-item"><strong>১০.</strong> সকল সদস্যকে আন্তরিকতা, সততা, ও মানবিকতার সঙ্গে কাজ করতে হবে।</div>
+        </div>
+
+        <div class="scroll-note" id="scrollNote">↓ সম্পূর্ণ Rules পড়ুন ↓</div>
+
+        <div class="agree-box" id="agreeBox">
+          <label class="checkbox-line">
+            <input type="checkbox" id="agreeCheck" />
+            <span>আমি Rules বুঝেছি এবং মেনে চলতে সম্মত</span>
+          </label>
+        </div>
+
+        <button class="btn" id="continueBtn" disabled>Continue</button>
+      </div>
+    </section>
+
+    <section id="formPage" class="page">
+      <div class="container">
+        <h1 class="cyber-title">JOIN US</h1>
+
+        <div class="join-hero">
+          <div class="image-control-box">
+            <input id="heroImageInput" type="url" value="https://files.catbox.moe/your-image.jpg" placeholder="Paste your Catbox image link here" />
+            <button type="button" id="applyHeroImageBtn">Apply Image</button>
+          </div>
+          <img id="heroImage" src="https://files.catbox.moe/your-image.jpg" alt="GLOBAL CYBER SECURITY FORCE" />
+          <div class="join-banner">∯𝐆𝐋𝐎𝐁𝐀𝐋 - 𝐂𝐘𝐁𝐄𝐑 - 𝐒𝐄𝐂𝐔𝐑𝐈𝐓𝐘 - 𝐅𝐎𝐑𝐂𝐄 - 𝐆𝐂𝐒𝐅 ∯</div>
+        </div>
+
+        <form id="joinForm" enctype="multipart/form-data">
+          <div class="form-grid">
+            <div class="field">
+              <label>নাম *</label>
+              <input type="text" name="fullName" required placeholder="আপনার পূর্ণ নাম" />
+            </div>
+
+            <div class="field">
+              <label>Email *</label>
+              <input type="email" name="email" required placeholder="your@email.com" />
+            </div>
+
+            <div class="field">
+              <label>ফোন নম্বর *</label>
+              <input type="tel" name="phone" required placeholder="+88017XXXXXXXX" />
+            </div>
+
+            <div class="field">
+              <label>লিঙ্গ *</label>
+              <select name="gender" required>
+                <option value="">-- নির্বাচন করুন --</option>
+                <option value="male">ছেলে</option>
+                <option value="female">মেয়ে</option>
+                <option value="prefer_not_to_say">বলতে অনিচ্ছুক</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label>বাসা/ঠিকানা *</label>
+              <textarea name="address" required placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"></textarea>
+            </div>
+
+            <div class="field">
+              <label>আপনি আগে কোনো group-এ ছিলেন? *</label>
+              <select name="previousGroup" required>
+                <option value="">-- নির্বাচন করুন --</option>
+                <option value="yes">হ্যাঁ</option>
+                <option value="no">না</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label>কেন যোগ দিতে চান? *</label>
+              <textarea name="reason" required placeholder="আপনি কেন এই গ্রুপে যোগ দিতে চান, সেটি লিখুন"></textarea>
+            </div>
+
+            <div class="field full">
+              <label>প্রোফাইল ফটো *(JPG/PNG/WebP)*</label>
+              <label class="file-box">
+                <input type="file" name="profilePhoto" accept="image/jpeg,image/png,image/webp" required />
+                <span>Choose file</span>
+                <span class="file-name" data-file-for="profilePhoto">কোনো ফাইল নির্বাচন করা হয়নি</span>
+              </label>
+            </div>
+
+            <div class="field full">
+              <label>পরিচয়পত্রের ছবি *(ঐচ্ছিক)*</label>
+              <label class="file-box">
+                <input type="file" name="idPhoto" accept="image/jpeg,image/png,image/webp" />
+                <span>Choose file</span>
+                <span class="file-name" data-file-for="idPhoto">কোনো ফাইল নির্বাচন করা হয়নি</span>
+              </label>
+            </div>
+
+            <div class="field full">
+              <label>ভিডিও যাচাইকরণ *(ঐচ্ছিক, 40 সেকেন্ডের মধ্যে)*</label>
+              <label class="file-box">
+                <input type="file" name="videoVerification" accept="video/mp4,video/webm,video/quicktime" />
+                <span>Choose file</span>
+                <span class="file-name" data-file-for="videoVerification">কোনো ফাইল নির্বাচন করা হয়নি</span>
+              </label>
+            </div>
+
+            <div class="field full">
+              <div class="script-box">
+                <strong>ভিডিওতে যা বলবেন:</strong>
+                <p style="margin: 12px 0 0; line-height: 1.7;">
+                  আসসালামু আলাইকুম। আমার নাম <strong>(আপনার নাম)</strong>। আমি সম্মতি দিচ্ছি যে, —͟͞͞★𝗚𝗟𝗢𝗕𝗔𝗟⏤ ꯭⃞꯭𝗖𝗬𝗕𝗘𝗥 ♻️⃝⃪𝗦𝗘𝗖𝗨𝗥𝗜𝗧𝗬⚠️⃝⃪𝗙𝗢𝗥𝗖𝗘💀 এর সাথে আইন মেনে কাজ করবো। অন্যায়ের বিরুদ্ধে, ন্যায়ের পাশে থাকবো। আমি সিনিয়রদের সম্মান করব, ছোটদের স্নেহ করব। কখনো গুটিবাজি করবো না, ইনশাআল্লাহ।
+                </p>
+                <button type="button" class="script-copy" id="copyScriptBtn">Copy Script</button>
+              </div>
+            </div>
+
+            <div class="field full">
+              <button type="submit" class="btn btn-cyan" id="submitBtn">Join Now ✅</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="profilePage" class="page">
+      <div class="container">
+        <h1 class="cyber-title">OUR TEAM</h1>
+        <div class="typing-banner" id="typingBanner"></div>
+
+        <div class="profile-grid">
+          <div class="profile-card">
+            <h3>CEO</h3>
+            <div class="profile-pic">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="CEO" />
+            </div>
+            <div style="font-weight: 800; color: var(--green); font-size: 1.2rem;">CEO NAME HERE</div>
+            <div class="tag-list">
+              <span class="tag">Cybersecurity</span>
+              <span class="tag">Leadership</span>
+              <span class="tag">Ethical Hacking</span>
+            </div>
+          </div>
+
+          <div class="profile-card">
+            <h3>Owner</h3>
+            <div class="profile-pic">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" alt="Owner" />
+            </div>
+            <div style="font-weight: 800; color: var(--green); font-size: 1.2rem;">ACS TONMOY</div>
+            <div class="tag-list">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Python</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Cyber Security</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-box">
+        <h2>✅ আপনার ফর্ম জমা দেওয়া সম্পন্ন হয়েছে!</h2>
+        <p>আপনার আবেদন সফলভাবে জমা দেওয়া হয়েছে। Telegram-এ notification পাঠানো হলে এই popup আসবে। যদি bot setup ঠিক না থাকে, তাহলে alert/error দেখাবে।</p>
+        <button class="btn btn-cyan" id="okBtn" style="margin-top: 16px;">OK</button>
+      </div>
+    </div>
+
+    <script>
+      const pages = {
+        welcome: document.getElementById('welcomePage'),
+        rules: document.getElementById('rulesPage'),
+        form: document.getElementById('formPage'),
+        profile: document.getElementById('profilePage')
+      };
+
+      const typingText = document.getElementById('typingText');
+      const bannerText = document.getElementById('typingBanner');
+
+      const welcomeText = "WELCOME 𝐆𝐋𝐎𝐁𝐀𝐋 𝐂𝐘𝐁𝐄𝐑 𝐒𝐄𝐂𝐔𝐑𝐈𝐓𝐘 𝐅𝐎𝐑𝐂𝐄";
+      let welcomeIndex = 0;
+      function typeWelcome() {
+        if (welcomeIndex <= welcomeText.length) {
+          typingText.innerHTML = welcomeText.slice(0, welcomeIndex) + '<span class="cursor"></span>';
+          welcomeIndex++;
+          setTimeout(typeWelcome, 90);
+        } else {
+          setTimeout(() => showPage('rules'), 700);
+        }
+      }
+      typeWelcome();
+
+      function showPage(name) {
+        Object.keys(pages).forEach(key => {
+          pages[key].classList.toggle('active', key === name);
+        });
+      }
+
+      const rulesBox = document.getElementById('rulesBox');
+      const scrollNote = document.getElementById('scrollNote');
+      const agreeBox = document.getElementById('agreeBox');
+      const continueBtn = document.getElementById('continueBtn');
+      const agreeCheck = document.getElementById('agreeCheck');
+
+      rulesBox.addEventListener('scroll', () => {
+        const nearBottom = rulesBox.scrollHeight - rulesBox.scrollTop - rulesBox.clientHeight < 20;
+        if (nearBottom) {
+          scrollNote.textContent = "✓ Rules পড়া শেষ";
+          agreeBox.classList.add('visible');
+          continueBtn.disabled = true;
+        }
+      });
+
+      agreeCheck.addEventListener('change', () => {
+        continueBtn.disabled = !agreeCheck.checked || !isNearBottom();
+      });
+
+      function isNearBottom() {
+        return rulesBox.scrollHeight - rulesBox.scrollTop - rulesBox.clientHeight < 20;
+      }
+
+      continueBtn.addEventListener('click', () => {
+        if (agreeCheck.checked && isNearBottom()) {
+          showPage('form');
+        }
+      });
+
+      document.querySelectorAll('input[type="file"]').forEach(input => {
+        input.addEventListener('change', () => {
+          const fileName = input.files && input.files[0] ? input.files[0].name : 'কোনো ফাইল নির্বাচন করা হয়নি';
+          const target = document.querySelector('[data-file-for="' + input.name + '"]');
+          if (target) target.textContent = fileName;
+        });
+      });
+
+      document.getElementById('copyScriptBtn').addEventListener('click', async () => {
+        const script = `আসসালামু আলাইকুম। আমার নাম (আপনার নাম)। আমি সম্মতি দিচ্ছি যে, —͟͞͞★𝗚𝗟𝗢𝗕𝗔𝗟⏤ ꯭⃞꯭𝗖𝗬𝗕𝗘𝗥 ♻️⃝⃪𝗦𝗘𝗖𝗨𝗥𝗜𝗧𝗬⚠️⃝⃪𝗙𝗢𝗥𝗖𝗘💀 এর সাথে আইন মেনে কাজ করবো। অন্যায়ের বিরুদ্ধে, ন্যায়ের পাশে থাকবো। আমি সিনিয়রদের সম্মান করব, ছোটদের স্নেহ করব। কখনো গুটিবাজি করবো না, ইনশাআল্লাহ।`;
+        try {
+          await navigator.clipboard.writeText(script);
+          document.getElementById('copyScriptBtn').textContent = '✓ Copied';
+        } catch (err) {
+          document.getElementById('copyScriptBtn').textContent = 'Copy failed';
+        }
+      });
+
+      const joinForm = document.getElementById('joinForm');
+      const successOverlay = document.getElementById('successOverlay');
+
+      joinForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(joinForm);
+        const required = ['fullName', 'email', 'phone', 'address', 'gender', 'previousGroup', 'reason', 'profilePhoto'];
+        for (const key of required) {
+          if (!formData.get(key)) {
+            alert('সব ফিল্ড পূরণ করুন');
+            return;
+          }
+        }
+
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        try {
+          const response = await fetch('/api/submit', {
+            method: 'POST',
+            body: formData
+          });
+
+          const result = await response.json();
+          if (!response.ok || !result.success) {
+            throw new Error(result.message || 'Submission failed');
+          }
+
+          successOverlay.classList.add('show');
+        } catch (err) {
+          alert('❌ Telegram send failed: ' + (err.message || 'Unknown error'));
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Join Now ✅';
+        }
+      });
+
+      document.getElementById('okBtn').addEventListener('click', () => {
+        successOverlay.classList.remove('show');
+        showPage('profile');
+
+        const profileString = "THIS WEB © COPYRIGHT OWNER ACS TONMOY HTML.CSS.PYTHON.JAVASCRIPT";
+        let i = 0;
+        bannerText.textContent = '';
+        const typeBanner = () => {
+          if (i <= profileString.length) {
+            bannerText.textContent = profileString.slice(0, i);
+            i++;
+            setTimeout(typeBanner, 45);
+          }
+        };
+        typeBanner();
+      });
+
+      const profileString = "THIS WEB © COPYRIGHT OWNER ACS TONMOY HTML.CSS.PYTHON.JAVASCRIPT - BD ETHICAL CYBER SECURITY COMMUNITY";
+      let profileIndex = 0;
+      const typeProfile = () => {
+        if (profileIndex <= profileString.length) {
+          bannerText.textContent = profileString.slice(0, profileIndex);
+          profileIndex++;
+          setTimeout(typeProfile, 35);
+        }
+      };
+      typeProfile();
+
+      const heroImageInput = document.getElementById('heroImageInput');
+      const heroImage = document.getElementById('heroImage');
+      const applyHeroImageBtn = document.getElementById('applyHeroImageBtn');
+
+      applyHeroImageBtn.addEventListener('click', () => {
+        const value = heroImageInput.value.trim();
+        if (!value) {
+          alert('Image link দিতে হবে');
+          return;
+        }
+        heroImage.src = value;
+      });
+    </script>
+  </body>
+</html>
