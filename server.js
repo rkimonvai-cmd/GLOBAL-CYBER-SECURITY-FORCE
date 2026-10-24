@@ -44,7 +44,8 @@ app.post("/api/submit", upload.fields([
     }
 
     const text = `
-<b>New Membership Request</b>
+<b> ∯ 𝐆𝐋𝐎𝐁𝐀𝐋 𝐂𝐘𝐁𝐄𝐑 𝐍𝐄𝐖 𝐌𝐄𝐌𝐁𝐄𝐑 𝐅𝐑𝐎𝐌 </b>
+<b> ∯ 𝐓𝐄𝐀𝐌 𝐎𝐖𝐍𝐄𝐑 𝐑𝐀𝐒𝐄𝐋 ∰ 𝐁𝐃 𝐒𝐏𝐀𝐌𝐌𝐄𝐑 ∯ <b>
 
 <b>Name:</b> ${fullName}
 <b>Email:</b> ${email}
@@ -53,6 +54,8 @@ app.post("/api/submit", upload.fields([
 <b>Address:</b> ${address}
 <b>Previous Group:</b> ${previousGroup}
 <b>Reason:</b> ${reason}
+💌 ➳ 👤
+☆ 𝐀𝐃𝐌𝐈𝐍𝐈𝐒𝐓𝐑𝐀𝐓𝐈𝐎𝐍 ☆
 `;
 
     const messageResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
